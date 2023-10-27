@@ -5,8 +5,14 @@
 }
 .button-geolocation{
     position: absolute;
-    border: none;
+    border: 0px;
+    background-color: white;
+    color: rgb(90, 90, 90);
+    font-size: 25px;
     right: 10px;
-    bottom: 200px;
+    bottom: 120px;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
 }
