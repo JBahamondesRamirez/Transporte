@@ -2,8 +2,8 @@ import { React, useState } from "react";
 import { GoogleMap, useLoadScript, InfoWindowF, MarkerF } from "@react-google-maps/api";
 import './Map.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationCrosshairs  } from '@fortawesome/free-solid-svg-icons'
-import { styleMap } from "./StyleMap";
+import { faLocationCrosshairs } from '@fortawesome/free-solid-svg-icons'
+import { styleMap } from "./styleMap";
 import circle from "/src/Components/Icons/circle.svg"
 
 
@@ -14,10 +14,10 @@ const Map = () => {
 export default Map;
 
 const RenderMap = () => {
-  const [center, setCenter] = useState({lat: -34.978062, lng: -71.25259})
+  const [center, setCenter] = useState({ lat: -34.978062, lng: -71.25259 })
   const [marketPosition, setMarketPosition] = useState(null)
 
-  const getposition = () =>  {
+  const getposition = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -35,19 +35,21 @@ const RenderMap = () => {
     }
   }
 
-  return <GoogleMap
-    zoom={14}
-    center={center}
-    mapContainerClassName="map"
-    options={{
-      fullscreenControl: false,
-      streetViewControl: false,
-      mapTypeControl: false,
-      styles: styleMap
-    }}
-  >
-  <MarkerF position={marketPosition} icon={circle}></MarkerF>
-  <button className="button-geolocation" onClick={getposition}><FontAwesomeIcon icon={faLocationCrosshairs}/></button>
-  </GoogleMap>
+  return <div className="containerMap">
+    <GoogleMap
+      zoom={14}
+      center={center}
+      mapContainerClassName="map"
+      options={{
+        fullscreenControl: false,
+        streetViewControl: false,
+        mapTypeControl: false,
+        styles: styleMap
+      }}
+    >
+      <MarkerF position={marketPosition} icon={circle}></MarkerF>
+      <button className="button-geolocation" onClick={getposition}><FontAwesomeIcon icon={faLocationCrosshairs} /></button>
+    </GoogleMap>
+  </div>
 
 }

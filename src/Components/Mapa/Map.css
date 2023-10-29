@@ -1,3 +1,10 @@
+.containerMap{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .map{
     width: 60vw;
     height: 70vh;

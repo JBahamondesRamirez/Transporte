@@ -1,0 +1,69 @@
+.logo{
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+}
+
+header{
+    position: relative;
+    background-color: #EEB600;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+li, a {
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+.navLinks{
+    display: flex;
+    list-style: none;
+}
+
+.navLinks li:hover{
+    transform: scale(1.1);
+    transition: all 0.2s ease-out;
+}
+
+.navLinks li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.navLinks li a:hover {
+    color: #FF6A00;
+    border-radius: 5px;
+}
+
+.buttonNavToggle{
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px){
+    .buttonNavToggle{
+        display: block;
+    }
+    .navLinks{
+        position: fixed;
+        top: 100px;
+        right: 0;
+        width: 100%;
+        height: 20vh;
+        background: #EEB600;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: top;
+        align-items: center;
+        z-index: 1;
+        transform: translateX(100%);
+        transition: 0.3s ease-in;
+    }
+}
+
+.navActive{
+    transform: translateX(0);
+}
