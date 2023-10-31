@@ -15,7 +15,7 @@ const Navbar = () => {
                 <li><a href="#">Quiénes somos</a></li>
             </ul> 
         </nav>
-        <img className="buttonNavToggle" onClick={navToggle} src="./src/Components/Icons/bars.svg"/>
+        <img className="buttonNavToggle" onClick={navToggle} src="https://icons.veryicon.com/png/o/miscellaneous/unicons/bars-1.png"/>
     </header>
 }
 

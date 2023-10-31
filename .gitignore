@@ -1,4 +1,7 @@
 # Logs
+.firebaserc
+firebase.json
+.firebase
 conection.js
 .env.local
 logs
