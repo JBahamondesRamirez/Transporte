@@ -7,10 +7,10 @@ const Navbar = () => {
         active === 'navLinks' ? setActive("navActive navLinks") : setActive("navLinks")
     }
     return <header>
-        <img className="logo" src="https://appassets.mvtdev.com/index/public-transit-resources/img/moovit_logo_full.svg" alt="logo" />
+        <img className="logo" src="https://pngimg.com/uploads/bus/bus_PNG8610.png" alt="logo" />
         <nav>
             <ul className={active}>
-                <li><a href="#">Favoritos</a></li>
+                <li><a onClick={navToggle} className="iconsClose" href="#">⨉</a></li>
                 <li><a href="#">Servicio</a></li>
                 <li><a href="#">Quiénes somos</a></li>
             </ul> 

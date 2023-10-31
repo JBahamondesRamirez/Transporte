@@ -9,6 +9,7 @@
     width: 60vw;
     height: 70vh;
     position: relative;
+    border-radius: 20px;
 }
 .button-geolocation{
     position: absolute;
@@ -26,6 +27,7 @@
 .button-geolocation:hover{
     color: black;
 }
+
 
 @media (max-width:768px){
     .map{

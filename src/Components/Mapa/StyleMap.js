@@ -1,4 +1,4 @@
-export const styleMap = [
+const styleMap = [
     {
       "elementType": "geometry",
       "stylers": [
@@ -268,3 +268,5 @@ export const styleMap = [
       ]
     }
   ]
+  
+export default styleMap;

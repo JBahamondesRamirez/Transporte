@@ -1,4 +1,5 @@
 # Logs
+conection.js
 .env.local
 logs
 *.log
