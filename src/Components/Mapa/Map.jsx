@@ -6,7 +6,7 @@ import { faLocationCrosshairs } from '@fortawesome/free-solid-svg-icons'
 import styleMap from "./styleMap.js";
 import circle from "/src/Components/Icons/circle.svg"
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, get, child } from "firebase/database";
 import firebaseConfig from "./conection.js";
 import iconBus from "/src/Components/Icons/bus.svg"
 
@@ -21,14 +21,20 @@ const RenderMap = () => {
   const [marketPosition, setMarketPosition] = useState(null)
   const [data, setData] = useState([])
 
+  
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app)
+
   useEffect(() => {
+    const dbRef = ref(database)
     const fetchData = () => {
-        const getTask = ref(database, 'coordenadas/micro1');
-        onValue(getTask, (snapshot) => {
-          const task = snapshot.val()
-          setData([task])
+        get(child(dbRef, 'coordenadas'))
+        .then((snapshot) => {
+          var position = []
+          snapshot.forEach(childSnapshot => {
+            position.push(childSnapshot.val())
+            setData(position)
+          })
         })
       }
       fetchData()
@@ -52,7 +58,7 @@ const RenderMap = () => {
       );
     }
   }
-
+  
   return <div className="containerMap">
     <GoogleMap
       zoom={15}
@@ -65,7 +71,7 @@ const RenderMap = () => {
         styles: styleMap
       }}
     >
-      {data.map((position) => { return <MarkerF key={indexedDB} position={position} icon={iconBus}></MarkerF>})}
+      {data.map((position) => { return <MarkerF key={position.key} position={{lat: position.lat, lng:position.lng}} icon={iconBus}></MarkerF>})}
       <MarkerF position={marketPosition} icon={circle}></MarkerF>
       <button className="button-geolocation" onClick={getposition}><FontAwesomeIcon icon={faLocationCrosshairs} /></button>
     </GoogleMap>
