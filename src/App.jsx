@@ -1,15 +1,19 @@
-import { useState } from 'react'
+import React from "react"
 import './App.css'
 import Mapa from './Components/Mapa/Map'
-import Navbar from './Components/NavBar/NavBar'
+import SideBar from './Components/SideBar/SideBar'
+import InfoView from './Components/InfoView/infoView'
 
 function App() {
   return (
     <>
-      <Navbar/>
-      <Mapa/>
+      <div className='container-header'>
+        <SideBar />
+        <Mapa />
+        <InfoView />
+      </div>
     </>
   )
 }
 
-export default App
+export default App;

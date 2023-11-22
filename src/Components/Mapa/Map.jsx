@@ -1,64 +1,23 @@
-import { React, useState, useEffect, createContext } from "react";
-import { GoogleMap, useLoadScript, InfoWindowF, MarkerF } from "@react-google-maps/api";
+import { React } from "react";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import './Map.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationCrosshairs } from '@fortawesome/free-solid-svg-icons'
 import styleMap from "./styleMap.js";
 import circle from "/src/Components/Icons/circle.svg"
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue, get, child } from "firebase/database";
-import firebaseConfig from "./conection.js";
+import getCurrentPosition from "./getCurrentPosition.js";
+import getData from "./getDataBus.js";
 import iconBus from "/src/Components/Icons/bus.svg"
 
 const Map = () => {
-  const { isLoaded } = useLoadScript({ googleMapsApiKey: `${import.meta.env.VITE_APP_API_KEY}` });
+  const { isLoaded } = useLoadScript({ googleMapsApiKey: `${import.meta.env.VITE_APP_API_KEY}`});
   if (isLoaded) return <RenderMap />
 }
 export default Map;
 
 const RenderMap = () => {
-  const [center, setCenter] = useState({ lat: -34.978062, lng: -71.25259 })
-  const [marketPosition, setMarketPosition] = useState(null)
-  const [data, setData] = useState([])
-
-  
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app)
-
-  useEffect(() => {
-    const dbRef = ref(database)
-    const fetchData = () => {
-        get(child(dbRef, 'coordenadas'))
-        .then((snapshot) => {
-          var position = []
-          snapshot.forEach(childSnapshot => {
-            position.push(childSnapshot.val())
-            setData(position)
-          })
-        })
-      }
-      fetchData()
-      setInterval(fetchData, 1000);
-  }, []);
-
-  const getposition = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          setCenter(pos)
-          setMarketPosition(pos)
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    }
-  }
-  
+  const {data} = getData()
+  const {marketPosition, center, getposition} = getCurrentPosition()
   return <div className="containerMap">
     <GoogleMap
       zoom={15}
@@ -71,10 +30,9 @@ const RenderMap = () => {
         styles: styleMap
       }}
     >
-      {data.map((position) => { return <MarkerF key={position.key} position={{lat: position.lat, lng:position.lng}} icon={iconBus}></MarkerF>})}
+      {data.map((position) => { return <MarkerF key={position.id} position={{ lat: position.Latitud, lng: position.Longitud }} icon={iconBus}></MarkerF> })}
       <MarkerF position={marketPosition} icon={circle}></MarkerF>
       <button className="button-geolocation" onClick={getposition}><FontAwesomeIcon icon={faLocationCrosshairs} /></button>
     </GoogleMap>
   </div>
-
 }

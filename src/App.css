@@ -1,5 +1,15 @@
-* {
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+.container-header{
+    display: flex;
+}
+
+@media (max-width:768px){
+    .container-header{
+        display: block;
+    }
 }
