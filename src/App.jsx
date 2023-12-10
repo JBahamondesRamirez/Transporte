@@ -1,16 +1,14 @@
 import React from "react"
 import './App.css'
 import Mapa from './Components/Mapa/Map'
-import SideBar from './Components/SideBar/SideBar'
-import InfoView from './Components/InfoView/infoView'
+import CalculePrices from './Components/calculePrices/calculePrices'
 
 function App() {
   return (
     <>
-      <div className='container-header'>
-        <SideBar />
+      <div className="firstPage">
         <Mapa />
-        <InfoView />
+        <CalculePrices />
       </div>
     </>
   )

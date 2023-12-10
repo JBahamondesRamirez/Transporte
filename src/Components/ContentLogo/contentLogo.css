@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap');
+
+.header {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    padding: 10px 0 0 25px;
+}
+
+.contentLogo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #37BF67;
+}
+
+.logoPage {
+    width: 45px;
+    height: 45px;
+}
+
+.logoTittle {
+    margin-left: 5px;
+    font-size: 1.6em;
+    font-family: 'Signika', sans-serif;
+}
+
+@media(max-width:768px){
+    .header{
+        margin-top: 15px;
+        padding: 0px 25px 0 25px;
+    }
+
+    .logoPage {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logoTittle {
+        margin-left: 5px;
+        font-size: 1.4em;
+        font-family: 'Signika', sans-serif;
+    }
+
+}

@@ -1,15 +1,16 @@
-*{
-    box-sizing: border-box;
+* {
     margin: 0;
     padding: 0;
 }
 
-.container-header{
+.firstPage{
     display: flex;
+    flex-direction: row-reverse;
+    height: 100vh;
 }
 
 @media (max-width:768px){
-    .container-header{
-        display: block;
+    .firstPage{
+        flex-direction: column;
     }
 }

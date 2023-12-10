@@ -1,19 +1,43 @@
 .containerMap {
-    height: 100vh;
     flex: 3;
 }
 
-.map {
+.map{
     width: 100%;
     height: 100%;
-    position: relative;
+}
+
+.zoomIn, .zoomOut{
+    position: absolute;
+    border: 0px;
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    background-color: #37BF67;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    cursor: pointer;
+}
+
+.zoomIn{
+    right: 10px;
+    bottom: 70px;
+}
+
+.zoomOut{
+    right: 10px;
+    bottom: 20px;
+}
+
+.zoomIn:hover, .zoomOut:hover {
+    color: rgb(59, 59, 59);
 }
 
 .button-geolocation {
     position: absolute;
     border: 0px;
-    background-color: white;
-    color: rgb(90, 90, 90);
+    background-color: #37BF67;
+    color: white;
     font-size: 25px;
     right: 10px;
     bottom: 120px;
@@ -24,11 +48,5 @@
 }
 
 .button-geolocation:hover {
-    color: black;
-}
-
-@media (max-width:768px) {
-    .containerMap {
-        height: 50vh;
-    }
+    color: rgb(59, 59, 59);
 }

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+.containerCalculePrices{
+    flex: 1;
+    background: #1A1A1A;
+    color: white;
+}
+
+.formPrices{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin: 30px 25px 0 25px;
+    align-items: center;
+}
+
+.input input{
+    outline: 0;
+    border: none; 
+    background: transparent;
+    height: 45px;
+    color: #646464;
+    width: 100%;
+     caret-color: #37BF67;
+}
+
+.input, .inputCount{
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #646464;
+    outline: 0;
+    font-size: 15px;
+    border-radius: 25px;
+    height: 100%;
+    padding: 0 40px 0 15px;
+}
+
+.icon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 4%;
+    color: #646464;
+}
+
+.input input::placeholder{
+    color: #646464;
+}
+
+.tittlePrice{
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+}
+
+.containerCount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40%;
+    margin-right: 5%;
+    height: 45px;
+}
+
+.text{
+    font-size: 1.1rem;
+}
+
+.inputCount{
+    padding: 0 15px 0 5%;
+}
+
+.containerCount button{
+    background: transparent;
+    border: none;
+    color: #37BF67;
+    cursor: pointer;
+}
+
+.containerCount input{
+    background: transparent;
+    text-align: center;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: white;
+}
+
+.totalPrice{
+    height: 45px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #646464;
+    border-left: 1px solid #646464;
+}
+
+.buttonCalculate{
+    width: 60%;
+    height: 35px;
+    border-radius: 25px;
+    background: #36B563;
+    color: white;
+    border: none;
+}
+
+.buttonCalculate:hover{
+    background: rgb(38, 133, 71);
+}
+
+@media(max-width:768px){
+    .containerCalculePrices{
+        flex: 3;
+    }
+
+    .formPrices{
+        margin-top: 0px;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .tittlePrice{
+        margin-top: 10px;
+    }
+
+    .icon{
+        right: 5%;
+    }
+}
