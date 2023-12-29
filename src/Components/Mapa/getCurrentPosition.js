@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const getCurrentPosition = () => {
-    const [center, setCenter] = useState({ lat: -34.978062, lng: -71.25259 })
+    const [center, setCenter] = useState({ lat: -35.114197, lng: -71.279798 })
     const [marketPosition, setMarketPosition] = useState(null)
     const getposition = () => {
         if (navigator.geolocation) {

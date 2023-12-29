@@ -24,7 +24,6 @@ const RenderMap = () => {
   const { data } = getData()
   const { marketPosition, center, getposition } = getCurrentPosition()
   const [zoom, setZoom] = useState(15)
-
   return <div className="containerMap">
     <GoogleMap
       zoom={zoom}
@@ -33,9 +32,9 @@ const RenderMap = () => {
       options={{
         fullscreenControl: false,
         streetViewControl: false,
-        mapTypeControl: false,
         styles: styleMap,
-        zoomControl: false
+        zoomControl: false,
+        mapTypeControl: false
       }}
     >
       {data.map((position) => { return <MarkerF key={position.id} position={{ lat: position.Latitud, lng: position.Longitud }} icon={iconBus}></MarkerF> })}
